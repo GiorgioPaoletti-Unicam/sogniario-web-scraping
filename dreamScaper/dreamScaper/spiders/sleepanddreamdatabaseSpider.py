@@ -16,7 +16,7 @@ class SleepanddreamdatabaseSpider(scrapy.Spider):
         db = client['Dreams']
         collection = db['sleepanddreamdatabaseDreams']
 
-        for dream in response.css('div.sc-pJVnX.jOExFg'):
+        for dream in response.css('a.sc-pciXn.kKVZfa').getall():
             dream_text = dream.css('div.sc-pjGMk.jrwOpx')
 
             dream_info = dream.css('div.sc-qZtVr.dLIPjF')
