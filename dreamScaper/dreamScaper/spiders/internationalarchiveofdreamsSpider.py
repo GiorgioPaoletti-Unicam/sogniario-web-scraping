@@ -7,12 +7,17 @@ def parse_link(response):
     db = client['Dreams']
     collection = db['internationalarchiveofdreamsDreams']
 
-    row_container = response.css('div._2bafp')
+    row_container = response.css('div#comp-jh97l5gp')
 
     rows = row_container.css('p')
 
-    # dreams = rows.css('span::text').getall()
-    dreams = [(s.encode('ascii', 'ignore')).decode("utf-8") for s in rows.css('span::text').getall()]
+    dreams = []
+    for r in rows:
+        if r.css('span::text').get():
+            for r_ in r.css('span::text').getall():
+                dreams.append((r_.encode('ascii', 'ignore')).decode("utf-8"))
+        else:
+            dreams.append('')
 
     i = 0
     while True:
@@ -20,7 +25,6 @@ def parse_link(response):
         if i + 5 > len(dreams):
             break
 
-        # if dreams[i + 1] == '\u200b' and dreams[i + 1] == '\xa0':
         if dreams[i + 1] != '':
             collection.insert_one({
                 "id": dreams[i],
@@ -42,12 +46,8 @@ class InternationalarchiveofdreamsSpider(scrapy.Spider):
     start_urls = ['https://www.internationalarchiveofdreams.com/archive']
 
     def parse(self, response):
-        links_container = response.css('div._2bafp')
+
+        links_container = response.css('div#comp-k7uqwkqe')
 
         for link in links_container.css('a'):
             yield scrapy.Request(link.attrib['href'], parse_link)
-
-# <span class="wixGuard">​</span>                   \u200b      u"\u200B"
-# <p class="font_8" style="font-size:17px">&nbsp;</p>   \xa0        u"\u00A0"
-
-# NON FUNZIONA -> dreams[9] non contine uno "vuoto" ma contine diretamente l'ID di quello dopo
