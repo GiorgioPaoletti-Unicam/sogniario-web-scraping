@@ -36,11 +36,7 @@ def parse_link(response):
     db = client['Dreams']
     collection = db['thedreamarchiveDreams']
 
-    # text_container = response.css('div#block-b577aadc0550edd7d70a')
-    text_container = response.css('div.sqs-block.html-block.sqs-block-html').get(2)
-    # --> non funziona, non restituisce il blocco giusto
-    # --> se metto l'id mi ridà soltnato il blocco del id che sto ispezioanndo con F12
-    # block-81d280bb011a137de6a4
+    text_container = response.css('div.blog-item-content.e-content')
 
     collection.insert_one({
         "title": response.css('h2.entry-title.entry-title--large.p-name::text').get(),
