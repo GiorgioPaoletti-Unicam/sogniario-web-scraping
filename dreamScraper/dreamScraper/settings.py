@@ -1,4 +1,4 @@
-# Scrapy settings for dreamScaper project
+# Scrapy settings for dreamScraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'dreamScaper'
+BOT_NAME = 'dreamScraper'
 
-SPIDER_MODULES = ['dreamScaper.spiders']
-NEWSPIDER_MODULE = 'dreamScaper.spiders'
+SPIDER_MODULES = ['dreamScraper.spiders']
+NEWSPIDER_MODULE = 'dreamScraper.spiders'
 
 # Splash Setup
 
@@ -31,7 +31,7 @@ DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'dreamScaper (+http://www.yourdomain.com)'
+#USER_AGENT = 'dreamScraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -62,13 +62,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'dreamScaper.middlewares.DreamscaperSpiderMiddleware': 543,
+#    'dreamScraper.middlewares.DreamscraperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'dreamScaper.middlewares.DreamscaperDownloaderMiddleware': 543,
+#    'dreamScraper.middlewares.DreamscraperDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -80,7 +80,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'dreamScaper.pipelines.DreamscaperPipeline': 300,
+#    'dreamScraper.pipelines.DreamscraperPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
