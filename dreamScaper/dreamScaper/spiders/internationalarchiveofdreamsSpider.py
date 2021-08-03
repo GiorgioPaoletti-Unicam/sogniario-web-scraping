@@ -27,16 +27,19 @@ def parse_link(response):
 
         if dreams[i + 1] != '':
             collection.insert_one({
-                "id": dreams[i],
+                # "id": dreams[i],
                 "title": dreams[i + 1],
-                "text": dreams[i + 3]
+                "text": dreams[i + 3],
+                "date": None
             })
             i += 5
 
         else:
             collection.insert_one({
-                "id": dreams[i],
-                "text": dreams[i + 2]
+                # "id": dreams[i],
+                "title": None,
+                "text": dreams[i + 2],
+                "date": None
             })
             i += 4
 

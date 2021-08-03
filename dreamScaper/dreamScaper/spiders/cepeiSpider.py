@@ -12,7 +12,11 @@ def parse_link(response):
         if dream.css('span::text').get() is None:
             continue
 
-        collection.insert_one({"text": dream.css('span::text').get()})
+        collection.insert_one({
+            "title": None,
+            "text": dream.css('span::text').get(),
+            "date": None
+        })
 
 
 class CepeiSpider(scrapy.Spider):
