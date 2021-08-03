@@ -30,7 +30,8 @@ def parse_link(response):
                 # "id": dreams[i],
                 "title": dreams[i + 1],
                 "text": dreams[i + 3],
-                "date": None
+                "date": None,
+                "language": "en"
             })
             i += 5
 
@@ -39,7 +40,8 @@ def parse_link(response):
                 # "id": dreams[i],
                 "title": None,
                 "text": dreams[i + 2],
-                "date": None
+                "date": None,
+                "language": "en"
             })
             i += 4
 

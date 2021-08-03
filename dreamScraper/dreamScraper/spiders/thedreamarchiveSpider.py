@@ -42,6 +42,7 @@ def parse_link(response):
         "title": response.css('h2.entry-title.entry-title--large.p-name::text').get(),
         "text": '\n'.join(text_container.css('p::text').getall()),
         "date": response.css('time.dt-published.date-callout').attrib['datetime'],
+        "language": "en"
     })
 
 

@@ -15,7 +15,8 @@ def parse_link(response):
         collection.insert_one({
             "title": None,
             "text": dream.css('span::text').get(),
-            "date": None
+            "date": None,
+            "language": "it"
         })
 
 
