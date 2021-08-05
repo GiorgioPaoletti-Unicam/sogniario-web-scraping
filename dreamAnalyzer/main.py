@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
                 words.append({
                     "text": token_text,
-                    "pos": token.pos_
+                    "tag": token.tag_
                 })
 
                 arcs.append({

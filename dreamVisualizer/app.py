@@ -2,6 +2,8 @@ from bson.objectid import ObjectId
 from flask import Flask, render_template
 from flask import redirect, url_for
 from pymongo import MongoClient
+from spacy import displacy
+from spacy.tokens import Doc
 
 app = Flask(__name__)
 
@@ -48,7 +50,7 @@ def visualize_a_dream(dream_id):
 
     # return f"The dream with following Id: {escape(dream_id)} was selected"
     # return flask.render_template(displacy.render(doc, style="dep", page=True))
-    # return displacy.serve(dream, style="dep", manual=True)
+    return displacy.render(Doc(dream), style="dep", manual=True)
 
 
 if __name__ == '__main__':
