@@ -53,6 +53,7 @@ if __name__ == '__main__':
                     "dir": "right" if token.head.i > token.i else "left"
                 })
 
+            doc_map["_id"] = dream["_id"]
             doc_map["words"] = words
             doc_map["arcs"] = arcs
 
