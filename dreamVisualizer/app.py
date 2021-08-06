@@ -32,21 +32,27 @@ def dreams_list():
                          dream["date"] if dream["date"] is not None else "",
                          dream["text"] if dream["text"] is not None else ""
                          ])
+    if len(data) == 0:
+        return "The dream list is empty"
 
     return render_template("table.html", headings=headings, data=data)
 
 
 @app.route('/dreams/<dream_id>')
 def visualize_a_dream(dream_id):
-    dream = db["tokenizedDreams"].find_one({"_id": ObjectId(dream_id)})
+    try:
+        dream = db["tokenizedDreams"].find_one({"_id": ObjectId(dream_id)})
 
-    doc = [
-        {
-            "words": dream["words"],
-            "arcs": dream["arcs"]
-        }
-    ]
-    return displacy.render(doc, style="dep", manual=True)
+        doc = [
+            {
+                "words": dream["words"],
+                "arcs": dream["arcs"]
+            }
+        ]
+        return displacy.render(doc, style="dep", manual=True)
+
+    except Exception:
+        return "The dream with the following Id: %s not exist" % dream_id
 
 
 if __name__ == '__main__':
