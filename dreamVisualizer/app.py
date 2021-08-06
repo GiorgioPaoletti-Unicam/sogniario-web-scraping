@@ -3,7 +3,6 @@ from flask import Flask, render_template
 from flask import redirect, url_for
 from pymongo import MongoClient
 from spacy import displacy
-from spacy.tokens import Doc
 
 app = Flask(__name__)
 
@@ -41,16 +40,13 @@ def dreams_list():
 def visualize_a_dream(dream_id):
     dream = db["tokenizedDreams"].find_one({"_id": ObjectId(dream_id)})
 
-    """
-    dream = {
-        "words": doc["words"],
-        "arcs": doc["arcs"]
-    }
-    """
-
-    # return f"The dream with following Id: {escape(dream_id)} was selected"
-    # return flask.render_template(displacy.render(doc, style="dep", page=True))
-    return displacy.render(Doc(dream), style="dep", manual=True)
+    doc = [
+        {
+            "words": dream["words"],
+            "arcs": dream["arcs"]
+        }
+    ]
+    return displacy.render(doc, style="dep", manual=True)
 
 
 if __name__ == '__main__':

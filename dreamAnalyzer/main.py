@@ -50,7 +50,7 @@ if __name__ == '__main__':
                     "start": token.head.i,
                     "end": token.i,
                     "label": token.dep_,
-                    "dir": "left" if token.head.i > token.i else "right"
+                    "dir": "right" if token.head.i > token.i else "left"
                 })
 
             doc_map["words"] = words
