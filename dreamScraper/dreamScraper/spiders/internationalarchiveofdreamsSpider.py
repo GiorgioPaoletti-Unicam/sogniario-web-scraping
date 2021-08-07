@@ -46,12 +46,16 @@ def parse_link(response):
             i += 4
 
 
+"""
+Spider that deals with extracting data from the site www.internationalarchiveofdreams.com
+"""
+
+
 class InternationalarchiveofdreamsSpider(scrapy.Spider):
     name = 'internationalarchiveofdreamsSpider'
     start_urls = ['https://www.internationalarchiveofdreams.com/archive']
 
     def parse(self, response):
-
         links_container = response.css('div#comp-k7uqwkqe')
 
         for link in links_container.css('a'):

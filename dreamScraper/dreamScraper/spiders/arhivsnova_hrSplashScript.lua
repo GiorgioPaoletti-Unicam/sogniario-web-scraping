@@ -1,3 +1,8 @@
+--[[
+Lua script written to render page http://arhivsnova.hr/archive through Splash
+It does not work
+]]
+
 local treat = require('treat')
 
 function main(splash, args)

@@ -46,6 +46,11 @@ def parse_link(response):
     })
 
 
+"""
+Spider that deals with extracting data from the site www.thedreamarchive.org
+The Splash javascript rendering service was used to view the page in its entirety
+"""
+
 class ThedreamarchiveSpider(scrapy.Spider):
     name = 'thedreamarchiveSpider'
 

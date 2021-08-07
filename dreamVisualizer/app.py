@@ -15,6 +15,11 @@ def index():
     return redirect(url_for('dreams_list'))
 
 
+""" 
+API to view the dream list
+"""
+
+
 @app.route('/dreams')
 def dreams_list():
     collections = [
@@ -36,6 +41,11 @@ def dreams_list():
         return "The dream list is empty"
 
     return render_template("table.html", headings=headings, data=data)
+
+
+"""
+API to visualize dream dependencies graphically
+"""
 
 
 @app.route('/dreams/<dream_id>')

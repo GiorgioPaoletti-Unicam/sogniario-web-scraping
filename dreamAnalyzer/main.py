@@ -1,6 +1,10 @@
 import spacy
 from pymongo import MongoClient
 
+"""
+The application has as its objective the processing of the natural language of dreams.
+It also takes care of saving a representation on the DB
+"""
 if __name__ == '__main__':
     client = MongoClient()
     db = client['Dreams']
